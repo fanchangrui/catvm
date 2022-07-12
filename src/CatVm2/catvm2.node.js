@@ -18,6 +18,8 @@ export default function GetCode(){
     code += fs.readFileSync(`${__dirname}/browser/history.js`) + '\r\n'
     code += fs.readFileSync(`${__dirname}/browser/screen.js`) + '\r\n'
     code += fs.readFileSync(`${__dirname}/browser/storage.js`) + '\r\n'
+    code += fs.readFileSync(`${__dirname}/browser/mimeType.js`) + '\r\n'
+    code += fs.readFileSync(`${__dirname}/browser/plugin.js`) + '\r\n'
 
     code += htmlElements() + '\r\n'
     code += fs.readFileSync(`${__dirname}/browser/document.js`) + '\r\n'
