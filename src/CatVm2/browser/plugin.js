@@ -8,6 +8,24 @@ catvm.safefunction(Plugin);
 
 catvm.memory.Plugin.iterator = function values(){
     debugger
+    return {
+        next:function(){
+            if(this.index_ == undefined){
+                this.index_ = 0
+            }
+            let temp = this.self_[this.index_]
+            this.index_++
+            if(temp!=undefined)
+            {
+            return {done:false,value:temp}
+            }
+            else
+            {
+                return {done:true,value:undefined}
+            }
+        },
+        self_:this,
+    }
 }
 catvm.safefunction(catvm.memory.Plugin.iterator);
 
@@ -27,12 +45,14 @@ Plugin.prototype.filename = ''
 Plugin.prototype.name = ''
 Plugin.prototype.length = 0
 
-Plugin.prototype.item = function item(){
+Plugin.prototype.item = function item(index){
     debugger
+    return this[index]
 }
 catvm.safefunction(Plugin.prototype.item);
-Plugin.prototype.namedItem = function namedItem(){
+Plugin.prototype.namedItem = function namedItem(key){
     debugger
+    return this[key]
 }
 catvm.safefunction(Plugin.prototype.namedItem);
 
@@ -61,7 +81,10 @@ catvm.memory.Plugin.new = function(data){
               let mimeType = catvm.memory.MimeType.new(mtindex,plugin)
 
               plugin[mtindex] = mimeType
-              plugin[mimeType.type] = mimeType
+              /* plugin[mimeType.type] = mimeType */
+              Object.defineProperty(plugin,mimeType.type,{
+                    value:mimeType,
+              })
 
             
           }}
