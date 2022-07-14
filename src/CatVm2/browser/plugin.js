@@ -59,7 +59,7 @@ catvm.safefunction(Plugin.prototype.namedItem);
 for (let pr in Plugin.prototype) {
     if(typeof (Plugin.prototype[pr]) != 'function'){
         Plugin.prototype.__defineGetter__(pr,function(){
-            return this[pr]
+            throw new TypeError('Illegal constructor')
         }
         )
     }

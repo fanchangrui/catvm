@@ -6,3 +6,4 @@ catvm.memory.htmlElements ={
 
 }
 catvm.memory.listeners ={}
+catvm.memory.PluginArray = {}
