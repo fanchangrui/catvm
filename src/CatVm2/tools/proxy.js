@@ -12,6 +12,10 @@ catvm.proxy = function(o){
         {
             console.log('get',target,key,target[key]);
             return target[key];
+        },
+        deleteProperty:function(target,key){
+            console.log('delete',target,key);
+            return true
         }
     });
 
