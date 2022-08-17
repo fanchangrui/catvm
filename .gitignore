@@ -8,14 +8,14 @@
 
 # production
 /build
-.idea
-*.idea
-.idea/
-package-lock.json
-yarn.lock
+# .idea
+# *.idea
+# .idea/
+# package-lock.json
+# yarn.lock
 
 # misc
-.DS_Store
+# .DS_Store
 .env.local
 .env.development.local
 .env.test.local
