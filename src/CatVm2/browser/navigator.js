@@ -10,6 +10,14 @@ Object.defineProperties(Navigator.prototype,{
         configurable:true,
     }
 })
+Object.getOwnPropertyDescriptor_ = Object.getOwnPropertyDescriptor;
+Object.getOwnPropertyDescriptor = function(tag, val){
+    // tag[Symbol.toStringtag]
+    if(tag.toLocaleString() == '[object Navigator]'){
+        return undefined;
+    }
+    return Object.getOwnPropertyDescriptor_.apply(this,arguments)
+}
 
 Navigator.prototype.plugins = []
 Navigator.prototype.language = ['zh-CN','zh']
